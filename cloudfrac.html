@@ -65,8 +65,32 @@
 							0-1 with 1 representing pixels that are entirely covered by clouds and 0 having no clouds. 
 						</p>
 						<p>
-							From the image above, we can see the data is stored as 2-d arrays. In order to make long-term 
-							trends, we aggregate the cloud fraction data into one value per image. 
+							From the image above, we can see the data is stored as an HDF 2-d array. Over this 14-year 
+							period there was about 5000 files which amounts to around 1 per day. For easy analysis, I 
+							decided to use Python to loop through the images. Below is an animation that loops through and 
+							plots all the cloud fraction data onto a map for 2015.
+						</p>
+						<p>
+							We can see that looking through 5000 maps might become tedious, so in order to make long-term 
+							trends, I aggregated the cloud fraction data into one value per image. Reading all the files in 
+							Python, I created a separate .csv datafile that contained the average cloud fractions of each file. 
+							The first .csv file is titled “CloudFracDataWhole.csv” and can be found my GitHub Repository that I 
+							linked above <em>(*note: I later created another data-set that converted the date tags to Gregorian 
+								days to make future data analysis simpler”)</em>. 
+						</p>
+						<h3>Results</h3>
+						<p>
+							Here is the complete plot of all the averaged cloud fraction values across the Amazon Basin.
+						</p>
+						<p>
+							As you can see, there is a downward trend masked by seasonal trends. A good way to filter these 
+							seasonal effects is to apply a running-mean with a 365-day window. If you are unfamiliar with the 
+							running mean, it is a process that analyzes data points by creating a series of averages of different 
+							subsets of the full data set.  Given a series of numbers and a fixed subset size, the first element of 
+							the running mean is obtained by taking the average of an initial “window” or subset of the data. The 
+							window is then “shifted forward” throughout the series. By applying a window of 365 days (or a year), the 
+							model analyzes each individual day’s values and assimilates into a yearly pattern. In our case, the effects 
+							of Earth’s seasons are removed, and the overall long-term trends are highlighted.
 						</p>
 						
 						<div class="row">
