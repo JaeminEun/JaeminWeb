@@ -49,8 +49,32 @@
                              <a href= "https://github.com/Argentum133/Hurricane-Vs.-Roads">https://github.com/Argentum133/Hurricane-Vs.-Roads</a> </p>
                         <h3>Hurricane Mapping</h3>
                         <p>
-                            Hello
-                        </p>
+							Before we can delve into all the GIS analysis, it might be a good idea to see how everything 
+							is located spatially. The first step is to “clean” and prep the NOAA data whose original format 
+							can be download here: 
+							<a href= "https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2018-051019.txt">https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2018-051019.txt</a>.
+							As you might be able to guess, the data is organized quite erratically. So, to create a python 
+							friendly format, I created new data-frames and saved it as MisEnPlaceFloat.csv after the culinary 
+							procedure of organizing ingredients (<i>note: the data and code can be found in my GitHub repository listed 
+							above</i>). Here is an example of all the hurricanes and storms in 2005. 
+						</p>
+						<span class="image fitsmall"><img src="images/HurMap2005.png" alt=""/>
+							<figcaption><center><i>The 2005 Atlantic Hurricane Season was one of the most severe and 
+								intense, with record shattering storms including Hurricane Katrina</i></center>
+							</figcaption>
+						</span>
+						<span class="image fitsmall"><img src="images/HurMap2014.png" alt=""/>
+							<figcaption>
+								<center>
+									<i>By contrast the 2014 season was quite below average with a weak El-Niño phase</i>
+								</center>
+							</figcaption>
+						</span>
+						<p>
+							To map the hurricanes, we take the coordinates (latitude & longitude) and create mappable points using the 
+							Shapely python package. We can create a “line-string” from the points and create a geo data-frame that we can 
+							plot on a map as individual elements. A full gif animation of all years can be found here.
+						</p>
 
                         <h3>Hurricane and Road Intersections</h3>
                         <p>
