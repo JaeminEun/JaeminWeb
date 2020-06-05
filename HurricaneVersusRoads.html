@@ -40,12 +40,13 @@
 
 					<div class="box">
 						<h3>Introduction</h3>
-						<p>This project analyzes hurricanes in the 10-year period from 2005-2014 and 
-                            their intersections with counties and roads. This type of GIS visualization 
-                            can be helpful in urban planning as well as disaster relief efforts. It is 
-                            one of the many examples of how GIS can be useful in the real world. 
-                            All the code and associated files are contained in my GitHub repository and 
-                            can be found at:
+						<p>Hurricanes are one of the costliest natural disasters the US experiences on a 
+							regular seasonal basis. Monitoring their spatial distributions are some of the 
+							most important practical applications of GIS. This project analyzes hurricanes 
+							in the 10-year period from 2005-2014 and their intersections with counties and roads. 
+							This type of GIS visualization can be helpful in urban planning as well as disaster 
+							relief efforts. All the code and associated files are contained in my GitHub repository 
+							and can be found at:
                              <a href= "https://github.com/Argentum133/Hurricane-Vs.-Roads">https://github.com/Argentum133/Hurricane-Vs.-Roads</a> </p>
                         <h3>Hurricane Mapping</h3>
                         <p>
@@ -56,32 +57,42 @@
 							As you might be able to guess, the data is organized quite erratically. So, to create a python 
 							friendly format, I created new data-frames and saved it as MisEnPlaceFloat.csv after the culinary 
 							procedure of organizing ingredients (<i>note: the data and code can be found in my GitHub repository listed 
-							above</i>). Here is an example of all the hurricanes and storms in 2005. 
+							above</i>). Here is an example of all the hurricanes and storms in 2005 (yellow lines represent roads, and 
+							blue lines represent storms).
 						</p>
-						<span class="image fitsmall"><img src="images/HurMap2005.png" alt=""/>
+						<span class="image fitsmall"><img src="images/HurMap2005.png" alt="Hurricane Mapping 2005"/>
 							<figcaption><center><i>The 2005 Atlantic Hurricane Season was one of the most severe and 
 								intense, with record shattering storms including Hurricane Katrina</i></center>
 							</figcaption>
 						</span>
-						<span class="image fitsmall"><img src="images/HurMap2014.png" alt=""/>
+						<span class="image fitsmall"><img src="images/HurMap2014.png" alt="Hurricane Mapping 2014"/>
 							<figcaption>
 								<center>
 									<i>By contrast the 2014 season was quite below average with a weak El-Niño phase</i>
 								</center>
 							</figcaption>
 						</span>
+
 						<p>
 							To map the hurricanes, we take the coordinates (latitude & longitude) and create mappable points using the 
 							Shapely python package. We can create a “line-string” from the points and create a geo data-frame that we can 
 							plot on a map as individual elements. A full gif animation of all years can be found here.
 						</p>
 
-                        <h3>Hurricane and Road Intersections</h3>
-                        <p>
-                            Hello
-                        </p>
-
                         <h3>Mapping Counties Affected By Hurricanes</h3>
+                        <p>
+							In the above hurricane mapping procedure, the storms are represented with a simple blue line. Of course, the 
+							breadth and extent of a hurricane isn’t quite linear. Mapping the intersection between hurricane’s represented 
+							by lines and counties may not represent the full extent of storm related events, but it gives us a good idea of 
+							the spatial distribution of potential destruction. 
+                        </p>
+						<span class="image fitsmall"><img src="images/HurCount2005.png" alt="Hurricane County Intersection 2005"/></span>
+						<p>
+							The areas in red represent counties that have had hurricanes pass through them. This type of intersection method 
+							is quite useful because it allows us to perform more useful GIS methods such as SQL queries that show specific 
+							affected counties, or create buffers to highlight areas of possible damage. 
+						</p>
+                        <h3>Hurricane and Road Intersections</h3>
                         <p>
                             Hello
                         </p>
