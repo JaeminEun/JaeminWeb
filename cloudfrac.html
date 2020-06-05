@@ -37,7 +37,6 @@
 					<header>
 						<h2>Cloud Fraction and Deforestation in the Amazon</h2>
 					</header>                    
-
 					<div class="box">
 						<h3>Introduction</h3>
 						<p>
@@ -49,7 +48,7 @@
 							patterns. In its most extreme case, deforestation could lead to desertification. By analyzing 
 							satellite images across the Amazon Basin, we can quantify how the atmosphere may be affected 
 							by deforestation. 
-							</p>
+						</p>
 
 						<p>
 							In this research project, we analyze changes in Cloud Fractions across the periods of 
@@ -64,24 +63,32 @@
 							a good representation of cloud cover. Cloud fraction is a unitless measurement ranging from 
 							0-1 with 1 representing pixels that are entirely covered by clouds and 0 having no clouds. 
 						</p>
+						<span class="image fitsmall"><img src="images/CloudFracCombinedWallArray.PNG" alt="HDF Picture" /></span>
+						<figcaption><center><i>NASA Data in Original HDF Format Accessed Through PANOPLY</i></center>
+						</figcaption>	
+						<p></p>					
 						<p>
 							From the image above, we can see the data is stored as an HDF 2-d array. Over this 14-year 
 							period there was about 5000 files which amounts to around 1 per day. For easy analysis, I 
 							decided to use Python to loop through the images. Below is an animation that loops through and 
 							plots all the cloud fraction data onto a map for 2015.
 						</p>
+						<span class="image fitsmall"><img src="images/amazon.gif" alt="Amazon Gif" /></span>
+						
 						<p>
 							We can see that looking through 5000 maps might become tedious, so in order to make long-term 
 							trends, I aggregated the cloud fraction data into one value per image. Reading all the files in 
 							Python, I created a separate .csv datafile that contained the average cloud fractions of each file. 
 							The first .csv file is titled “CloudFracDataWhole.csv” and can be found my GitHub Repository that I 
 							linked above <em>(*note: I later created another data-set that converted the date tags to Gregorian 
-								days to make future data analysis simpler”)</em>. 
+							days to make future data analysis simpler”)</em>.
 						</p>
+
 						<h3>Results</h3>
 						<p>
 							Here is the complete plot of all the averaged cloud fraction values across the Amazon Basin.
 						</p>
+						<span class="image fitsmall"><img src="images/CloudPlot.png" alt="Cloud Plot" /></span>
 						<p>
 							As you can see, there is a downward trend masked by seasonal trends. A good way to filter these 
 							seasonal effects is to apply a running-mean with a 365-day window. If you are unfamiliar with the 
@@ -92,12 +99,15 @@
 							model analyzes each individual day’s values and assimilates into a yearly pattern. In our case, the effects 
 							of Earth’s seasons are removed, and the overall long-term trends are highlighted.
 						</p>
+						<span class="image fitsmall"><img src="images/CloudPlotRunningMeanResize.png" alt="Cloud Plot with Running Mean" /></span>
 						<p>
 							Using numpy’s polyfit regression tool, we can gain a sense of what a long-term trend might look like. In 
 							the 14-year period that the satellite captured data, there was around a <strong>20% decrease</strong>
 							in cloud cover. Extending the regression to another 14 years, we can see that cloud fractions in the 
 							Amazon will suffer a nearly <strong>50% decrease</strong>.
 						</p>
+						<span class="image fitsmall"><img src="images/CloudPlotForecastResize.png" alt="Cloud Plot Forecast" /></span>
+						<p></p>
 						<h3>Conclusion</h3>
 						<p>
 							The results from this study are quite worrying, especially given how the Amazon Basin serves as one of 
